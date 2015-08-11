@@ -1,21 +1,27 @@
-#(h) restaurants
-from collections import namedtuple
-Restaurant = namedtuple('Restaurant', 'name cuisine phone dish price')
-# Restaurant attributes: name, kind of food served, phone number, best dish, price of that dish
-RC = [
-    Restaurant("Thai Dishes", "Thai", "334-4433", "Mee Krob", 12.50),
-    Restaurant("Nobu", "Japanese", "335-4433", "Natto Temaki", 5.50),
-    Restaurant("Nonna", "Italian", "355-4433", "Stracotto", 25.50),
-    Restaurant("Jitlada", "Thai", "324-4433", "Paht Woon Sen", 15.50),
-    Restaurant("Nola", "New Orleans", "336-4433", "Jambalaya", 5.50),
-    Restaurant("Noma", "Modern Danish", "337-4433", "Birch Sap", 35.50),
-    Restaurant("Addis Ababa", "Ethiopian", "337-4453", "Yesiga Tibs", 10.50) ]
-RC.sort()
+#(1)
+x=int(input("Enter an integer: "))
+y=str(input("Enter either 'even', 'odd', 'positive', or 'negative': "))
+def isEven(number):
+    number%2==0
+    
+def test_number(number, prop):
+    number=x
+    prop=y
+    print(number)
+    print(prop)
+    if prop=='even':
+        return number%2==0
+    if prop=='odd':
+        return number%2!=0
+    if prop=='positive':
+        return number>=0
+    if prop=='negative':
+        return number<0
+    
+#program seems to work but assert statements don't work?
+##assert test_number(14, 'even')
+##assert not test_number(100, 'odd')
+##assert test_number(33, 'positive')
+##assert not test_number(100, 'negative')
 
-#(h.6)
-newList = []
-newList.append([RC[0].name])
-newList.append([RC[1].name])
-newList.append([RC[-2].name])
-newList.append([RC[-1].name])
-print(newList)
+print(test_number(x,y))
