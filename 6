@@ -1,12 +1,8 @@
 #(1)
-x=int(input("Enter an integer: "))
-y=str(input("Enter either 'even', 'odd', 'positive', or 'negative': "))
+number=int(input("Enter an integer: "))
+prop=str(input("Enter either 'even', 'odd', 'positive', or 'negative': "))
     
 def test_number(number, prop):
-    x=number
-    y=prop
-    print(x)
-    print(y)
     if prop=='even':
         return number%2==0
     if prop=='odd':
@@ -21,6 +17,4 @@ assert not test_number(100, 'odd')
 assert test_number(33, 'positive')
 assert not test_number(100, 'negative')
 
-print(test_number(x,y))
-
-
+print(test_number(number,prop))
