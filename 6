@@ -10,8 +10,12 @@ RC = [
     Restaurant("Nola", "New Orleans", "336-4433", "Jambalaya", 5.50),
     Restaurant("Noma", "Modern Danish", "337-4433", "Birch Sap", 35.50),
     Restaurant("Addis Ababa", "Ethiopian", "337-4453", "Yesiga Tibs", 10.50) ]
-RC.sort() #(h.5)
+RC.sort()
 
+#(h.6)
 newList = []
-newList.extend(RC[:2].name) #fail
+newList.append([RC[0].name])
+newList.append([RC[1].name])
+newList.append([RC[-2].name])
+newList.append([RC[-1].name])
 print(newList)
