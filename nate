@@ -13,7 +13,8 @@ RC = [
 #print(RC[2].name) #(h.1)
 #print(RC[0].cuisine == RC[3].cuisine) #(h.2)
 #print(RC[-1].dish)
-RC.sort() #(h.5)
+#RC.sort() #(h.5)
+#print(RC[-1].dish)
+#(h.6)
 for l in range(0,len(RC)): #might be a better way to do this
     print(RC[l].name) #tried printing 'print(RC[].name' w/o for loop but didn't work
-print(RC[-1].dish) #(h.6)
