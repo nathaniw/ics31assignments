@@ -1,0 +1,29 @@
+#include <cstdlib>
+#include <iostream>
+#include <sstream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    string location1, lat1, lon1, airport1;
+    
+    //string input = "33.9425/N 118.4081/W Los Angeles International Airport";
+    getline(cin,location1);
+    istringstream iss(location1);
+    iss >> lat1 >> lon1;
+    getline(iss,airport1);
+    
+    
+    cout << lat1 << endl;
+    cout << lon1 << endl;
+    cout << airport1 << endl;
+    
+    const char* x = lat1.c_str();
+    double lat1num = atof(x);
+    cout << lat1num;
+    
+    
+    return 0;
+}
+
