@@ -1,0 +1,19 @@
+#ifndef MANAGE_INPUT_H
+#define	MANAGE_INPUT_H
+#include <iostream>
+using namespace std;
+
+class ManageInput{
+public:
+    ManageInput();
+    void divInput();
+    string location, latitude, longitude, airport;
+    string getLatInput();
+    string getLonInput();
+    double getValues(string coordinate);
+    double latVal, lonVal;
+    double getLatVal(string latitude);
+    double getLonVal(string longitude);
+};
+
+#endif	/* MANAGE_INPUT_H */
