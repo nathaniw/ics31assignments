@@ -1,19 +1,20 @@
-#ifndef MANAGE_INPUT_H
-#define	MANAGE_INPUT_H
+#ifndef GRADES_H
+#define	GRADES_H
 #include <iostream>
 using namespace std;
 
-class ManageInput{
+class Grades{
 public:
-    ManageInput();
-    void divInput();
-    string location, latitude, longitude, airport;
-    string getLatInput();
-    string getLonInput();
-    double getValues(string coordinate);
-    double latVal, lonVal;
-    double getLatVal(string latitude);
-    double getLonVal(string longitude);
+    Grades();
+    double divideScores(double rawScore, double totalPossible);
+    double calcWeightedScore(double score, double weight);
+    void createArray();
+    int columnSize;
+    double* a = NULL;
+    
 };
 
-#endif	/* MANAGE_INPUT_H */
+
+
+#endif	/* GRADES_H */
+
