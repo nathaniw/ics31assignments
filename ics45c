@@ -1,22 +1,86 @@
 #include <cstdlib>
+#include <iostream>
+#include <iomanip>
 #include "grades.h"
 using namespace std;
 
 int main(int argc, char** argv) {
-    Grades gradesObject;
-    gradesObject.createArray();
-
-
+    // creates array for class assignments
+    double** assignments;
+    int rows, columns;
+    cout << "Enter the number of graded assignments: ";
+    cin >> columns;
+    rows = 2;
     
-    cout << gradesObject.a[0];
-
-
-
+    assignments = new double* [rows];
+    for(int row=0; row<rows; row++){
+        assignments[row] = new double[columns];
+    }
+    
+    Grades gradesObject;
+    gradesObject.fill(assignments, rows, columns);
+    
+    // creates array of student info
+    string** studentInfo;
+    int colsStudents;
+    colsStudents = 3;
+    cout << "Enter the number of students: ";
+    cin >> rows;
+    
+    studentInfo = new string* [rows];
+    for(int row=0; row<rows; row++){
+        studentInfo[row] = new string[colsStudents];
+    }
+    
+    gradesObject.fill(studentInfo, rows, colsStudents);
+    
+    // creates array of student scores
+    double** studentScores;
+    columns = columns + 1;
+    studentScores = new double* [rows];
+    for(int row=0; row<rows; row++){
+        studentScores[row] = new double[columns];
+    }
+    
+    gradesObject.fill(studentScores, rows, columns);
+    
+    for(int i=0; i<rows; i++){
+        double studentID = atof(studentInfo[i][0].c_str());
+        cout << studentID << " ";
+        for(int j=0; j<rows; j++){
+            if(studentID == studentScores[j][0]){
+                double totalScore;
+                for(int k=0; k<columns+1; k++){
+                    totalScore = (studentScores[j][i]/assignments[0][k])
+                            * assignments[i][k];
+                }
+            //cout << studentID << " " << studentInfo[i][1] << " " <<
+                    //studentInfo[i][2] << totalScore << endl;
+            }
+        }
+    }
+    /*double* classNums[2];
+    for(int row=0; row<2; row++){
+        classNums[row] = new double[columns];
+    }
+    
+    double** classNums;
+    
+    /*double** classNums = new double*[2];
+    for(int i=0; i < 2; i++) {
+        classNums[i] = new double[2];
+    }
+    
+    for(int i=0; i<2;i++){
+        for(int j=0;j<columns;j++){
+            cin >> classNums[i][j];
+        }
+    }*/
 
     //gradesObject.calcWeightedScore(gradesObject.divideScores(9.5,10),12);
     
-    delete [] gradesObject.a; // When done, free memory pointed to by a.
-    gradesObject.a = NULL; // Clear a to prevent using invalid memory reference.
+    //delete [] assignments; // When done, free memory pointed to by a.
+    //classNums = NULL; // Clear a to prevent using invalid memory reference.
 
     return 0;
 }
