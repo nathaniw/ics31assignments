@@ -8,10 +8,16 @@ public:
     Grades();
     double divideScores(double rawScore, double totalPossible);
     double calcWeightedScore(double score, double weight);
-    void createArray();
-    int columnSize;
-    double* a = NULL;
+    //void createArray();
+    //int columnSize;
     
+    string name;
+    int id;
+    double* gradesArray;
+    
+    void fill(double** p, int rowSize, int colSize);
+    void fill(string** p, int rowSize, int colSize);
+    //void print(int** p, int rowSize, int colSize);
 };
 
 
