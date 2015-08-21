@@ -1,45 +1,23 @@
-#include "manage_input.h"
-#include <iostream>
-#include <sstream>
+#include <cstdlib>
+#include "grades.h"
 using namespace std;
 
-ManageInput::ManageInput(){}
+int main(int argc, char** argv) {
+    Grades gradesObject;
+    gradesObject.createArray();
 
-void ManageInput::divInput(){
-    getline(cin,location);
-    istringstream iss(location);
-    iss >> latitude >> longitude;
-    getline(iss,airport);
+
     
-    cout << latitude << endl;
-    cout << longitude << endl;
-    cout << airport << endl;
+    cout << gradesObject.a[0];
+
+
+
+
+    //gradesObject.calcWeightedScore(gradesObject.divideScores(9.5,10),12);
+    
+    delete [] gradesObject.a; // When done, free memory pointed to by a.
+    gradesObject.a = NULL; // Clear a to prevent using invalid memory reference.
+
+    return 0;
 }
 
-string ManageInput::getLatInput(){
-    divInput();
-    return latitude;
-}
-
-string ManageInput::getLonInput(){
-    divInput();
-    return longitude;
-}
-
-double ManageInput::getValues(string coordinate){
-    const char* x = coordinate.c_str();
-    double val = atof(x);
-    return val;
-}
-
-double ManageInput::getLatVal(string latitude){
-    latVal = getValues(latitude);
-    cout << "latVal: " << latVal;
-    return latVal;
-}
-
-double ManageInput::getLonVal(string longitude){
-    lonVal = getValues(longitude);
-    cout << "lonVal: " << lonVal;
-    return lonVal;
-}
