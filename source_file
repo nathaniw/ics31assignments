@@ -12,19 +12,8 @@ double Grades::calcWeightedScore(double score, double weight){
     return score*weight;
 }
 
-/*void Grades::createArray(){
-    cin >> columnSize;
-    double* a = NULL;
-    int cin >> columnSize;
-    double* a = new double[columnSize];
-    for (int i = 0; i < gradesObject.columnSize; i++) {
-        cin >> a[i]; 
-    }    
-}*/
-
 void Grades::fill(double** p, int rowSize, int colSize){
     for(int row=0;row<rowSize; row++){
-        cout << "Enter " << colSize << " numbers for row number " << row << ": ";
         for(int col=0; col<colSize; col++){
             cin >> p[row][col];
         }
@@ -33,23 +22,8 @@ void Grades::fill(double** p, int rowSize, int colSize){
 
 void Grades::fill(string** p, int rowSize, int colSize){
     for(int row=0;row<rowSize; row++){
-        cout << "Enter " << colSize << " numbers for row number " << row << ": ";
         for(int col=0; col<colSize; col++){
             cin >> p[row][col];
         }
     }
 }
-
-/*void Grades::print(int** p, int rowSize, int colSize){
-    for(int row=0; row<rowSize; row++){
-        for(int col=0; col<colSize; col++){
-            cout << setw(5) << p[row][col];
-        }
-    }
-}*/
-
-
-
-
-
-
