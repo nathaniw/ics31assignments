@@ -1,23 +1,33 @@
-#ifndef GRADES_H
-#define	GRADES_H
+#ifndef LINKEDLIST_H
+#define	LINKEDLIST_H
 #include <iostream>
 using namespace std;
 
-class Grades{
-public:
-    Grades();
-    double divideScores(double rawScore, double totalPossible);
-    double calcWeightedScore(double score, double weight);
-    
-    string name;
-    int id;
-    double* gradesArray;
-    
-    void fill(double** p, int rowSize, int colSize);
-    void fill(string** p, int rowSize, int colSize);
+struct Node
+{
+    string username;
+    string password;
+    Node* next;
 };
 
+class LinkedList
+{
+    
+public:
+    LinkedList();
+    Node* head;
+    Node* temp;
+    Node* current;
+    int loginCount, i;
+    bool isEmpty(Node* head);
+    char commandOptions();
+    void insertAsFirstElement(Node *&head, Node *&last, string inputUN, string inputPW);
+    void insert(Node *&head, Node *&last, string inputUN, string inputPW);
+    void searchForMatch(Node *&head, Node *&last, string inputUN);
+    void remove(Node *&head, Node *&last);
+    void clear(Node *&head, Node *&last);
+    
+};
 
-
-#endif	/* GRADES_H */
+#endif	/* LINKEDLIST_H */
 
