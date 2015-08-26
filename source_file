@@ -1,29 +1,52 @@
-#include "grades.h"
+#include "LinkedList.h"
 #include <iostream>
 using namespace std;
 
-Grades::Grades(){}
+LinkedList::LinkedList() {
+    head -> next = NULL;
+    loginCount = 0;
+};
 
-double Grades::divideScores(double rawScore, double totalPossible){
-    return rawScore/totalPossible;
+bool LinkedList::isEmpty(Node* head) {
+    if (head -> next == NULL)
+        return true;
+    
+    else
+        return false;
 }
 
-double Grades::calcWeightedScore(double score, double weight){
-    return score*weight;
+char LinkedList::commandOptions() {
+    char command;
+    cout << "Options: CREATE, LOGIN, REMOVE, CLEAR, QUIT";
+    cin >> command;
+    return command;
 }
 
-void Grades::fill(double** p, int rowSize, int colSize){
-    for(int row=0;row<rowSize; row++){
-        for(int col=0; col<colSize; col++){
-            cin >> p[row][col];
-        }
+void LinkedList::insertAsFirstElement(Node *&head, Node *&last, string inputUN, string inputPW) {
+    temp = new Node;
+    temp -> username = inputUN;
+    temp -> password = inputPW;
+    temp -> next = NULL;
+    head = temp;
+    last = temp;
+    loginCount = 1;
+    //delete temp;
+}
+
+void LinkedList::insert(Node *&head, Node *&last, string inputUN, string inputPW){
+    if (isEmpty(head))
+        insertAsFirstElement(head, last, inputUN, inputPW);
+        
+    else{
+        temp = new Node;
+        temp -> username = inputUN;
+        temp -> password = inputPW;
+        temp -> next = NULL;
+        last -> next = temp;
+        last = temp;
+        loginCount++;
+        //delete temp;
     }
 }
 
-void Grades::fill(string** p, int rowSize, int colSize){
-    for(int row=0;row<rowSize; row++){
-        for(int col=0; col<colSize; col++){
-            cin >> p[row][col];
-        }
-    }
-}
+
