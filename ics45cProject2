@@ -8,9 +8,9 @@ int main(int argc, char** argv) {
     Node* A = NULL;
     Node* Z = NULL;
     
-    LinkedList linkedListObject;
-    cout << linkedListObject.loginCount;
-    linkedListObject.isEmpty(A);
+    LinkedList* linkedListObject = new LinkedList();  
+    cout << linkedListObject -> loginCount;
+    linkedListObject -> isEmpty(A);
 
     
     return 0;
